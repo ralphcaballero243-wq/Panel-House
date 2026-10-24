@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121312" />
+    <title>Panel House | Your comic universe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-locked">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#library"
+          ><span class="brand-mark">P</span
+          ><span>panel<span class="brand-light">house</span></span></a
+        >
+        <div class="side-label">Explore</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="library">
+            <span class="nav-icon">▦</span> Library</button
+          ><button class="nav-item" data-view="trending">
+            <span class="nav-icon">↗</span> Trending</button
+          ><button class="nav-item" data-view="new">
+            <span class="nav-icon">✦</span> New releases</button
+          ><button class="nav-item" data-view="bookmarks">
+            <span class="nav-icon">▱</span> My bookmarks
+            <span class="nav-count" id="bookmarkCount">0</span>
+          </button>
+        </nav>
+        <div class="side-label creator-label">Creator studio</div>
+        <button class="nav-item" id="creatorNav" data-view="creator">
+          <span class="nav-icon">▤</span> Creator studio
+        </button>
+        <button class="nav-item" id="createNav">
+          <span class="nav-icon">＋</span> Publish a comic
+        </button>
+        <div class="sidebar-footer">
+          <p class="footer-credit"><span>Created by</span><strong>Ralph R. Caballero</strong></p>
+          <p class="footer-team"><span>Project team</span><strong>Micco T. Obong</strong><strong>Sandra S. Dejarlo</strong><strong>Kristen P. Bajar</strong><strong>Ella A. Palmiano</strong></p>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark">P</span> panelhouse
+          </div>
+          <label class="search-box"
+            ><span>⌕</span
+            ><input
+              id="searchInput"
+              type="search"
+              placeholder="Search titles, creators, genres..."
+          /></label>
+          <div class="top-actions">
+            <button class="profile-button" id="profileButton" aria-label="Switch account">
+              <span class="profile-name">Username</span
+              ><span class="switch-account-icon" aria-hidden="true"><i></i></span><span class="switch-account-label">Switch account</span>
+            </button>
+            <button class="sign-out-button" id="signOutButton" type="button">
+              Sign out
+            </button>
+          </div>
+        </header>
+        <section class="content-wrap">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow" id="viewEyebrow">YOUR LIBRARY</p>
+              <h1 id="viewTitle">Good stories, <em>great company.</em></h1>
+              <p class="account-status" id="accountStatus">Signed in as <strong>@user</strong></p>
+            </div>
+            <button class="outline-button" id="sortButton">
+              Recently added <span>⌄</span>
+            </button>
+          </div>
+          <section class="creator-dashboard" id="creatorDashboard" hidden></section>
+          <div class="hero-banner" id="dashboardHero">
+            <div class="hero-copy">
+              <span class="pill warm" id="heroPill">EDITOR'S PICK</span>
+              <h2 id="heroTitle">The Sandman</h2>
+              <p id="heroDescription">
+                Dream, ruler of stories, returns to a world that forgot his name.
+              </p>
+              <div class="hero-actions">
+                <button class="primary-button" id="heroRead">
+                  Read now <span>→</span>
+                </button>
+              </div>
+            </div>
+            <div class="hero-art">
+              <img
+                id="heroImage"
+                src="img/SandMan.jpg"
+                alt="The Sandman cover"
+              />
+              <div class="art-fade"></div>
+            </div>
+          </div>
+          <div class="section-heading" id="continueHeading">
+            <div>
+              <h2 id="sectionTitle">Continue reading</h2>
+              <p id="sectionSub">Pick up where you left off</p>
+            </div>
+            <button class="text-button" id="seeAll">
+              See all <span>→</span>
+            </button>
+          </div>
+          <div class="continue-row" id="continueRow"></div>
+          <div class="section-heading catalog-heading" id="catalogHeading">
+            <div>
+              <h2 id="catalogTitle">Curated for you</h2>
+              <p id="catalogSub">
+                Handpicked worlds from the Panel House community
+              </p>
+            </div>
+            <div class="carousel-controls">
+              <button class="round-button" id="prevBtn" aria-label="Previous">
+                ←</button
+              ><button class="round-button" id="nextBtn" aria-label="Next">
+                →
+              </button>
+            </div>
+          </div>
+          <div class="comic-grid" id="comicGrid"></div>
+        </section>
+      </main>
+    </div>
+    <div class="modal-backdrop hidden" id="modalBackdrop">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          ×
+        </button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
